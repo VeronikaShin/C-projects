@@ -11,7 +11,7 @@ void draw(int matrix[h][w]);                         //рисует матриц
 void second_draw(int matrix[h][w], int next[h][w]);  //рисуем новое поколение
 int cnt_neighbors(int matrix[h][w], int x, int y);   //считаем соседей
 int final_stage(int matrix[h][w]);  //учитываем есть ли живые клетки
-int is_equal_matrix(int matrix[h][w], int next[h][w]);  //сравниваем две мтарицы
+int is_equal_matrix(int matrix[h][w], int next[h][w]);  //сравниваем две матрицы
 void copy_matrix(int matrix[h][w],
                  int next[h][w]);  //копируем 2 матрицу в 1, и 2 обнуляем
 
@@ -22,7 +22,6 @@ int main() {
     for (int i = 0; i < h; i++) {
         for (int j = 0; j < w; j++)
 
-            //что записываем как и куда
             scanf("%d", &(M[i][j]));
     }
 
@@ -37,7 +36,6 @@ int main() {
         while (1) {
             step++;
             if (final_stage(M) == 0) break;
-            //нам нужно видеть предыдущие поколения? пока отключила
             usleep(1000000 / speed);
             printf("\e[H\e[2J\e[3J");
             printf("Поколение №%d\n", step);
@@ -69,7 +67,7 @@ void second_draw(int matrix[h][w],
             int state = matrix[i][j];  //создаем временную переменную в которую кладем
                                        //значения из ячейки
             int neighbors = cnt_neighbors(matrix, i, j);  //функция подсчета соседей
-            if (state == 0 && neighbors == 3)             //правила игры
+            if (state == 0 && neighbors == 3)             
                 next[i][j] = 1;
             else if (state == 1 && (neighbors < 2 || neighbors > 3))
                 next[i][j] = 0;
@@ -93,8 +91,7 @@ int cnt_neighbors(int matrix[h][w], int x, int y) {
             sum += matrix[x2][y2];
         }
     }
-    sum -= matrix[x][y];  //удаляем саму нашу клетку из подсчета ее соседей (x y
-                          //это адрес самой переменной)
+    sum -= matrix[x][y];  //удаляем саму нашу клетку из подсчета ее соседей
     return sum;
 }
 

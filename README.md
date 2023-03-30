@@ -24,6 +24,15 @@ UI/UX
 
 When one of the players scores 21 points, congratulations to the winner are displayed on the screen and the game ends
 
+## game of life
+
+also used onle stdio.h
+The field is a 80 x 25-symbol rectangle.
+the field is closed on itself.
+a map is choosed in terminel (a.out <- world.txt)
+
+common rules were implemeted. 
+
 ## maxmin.c 
 finds max and min out of 3 integer numbers and displays them on the screen
 
